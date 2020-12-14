@@ -1,0 +1,41 @@
+/*
+ * SPI_Config.h
+ *
+ * Created: 7/28/2020 9:23:40 PM
+ *  Author: Omar el Masry
+ */ 
+
+
+#ifndef SPI_CONFIG_H_
+#define SPI_CONFIG_H_
+//SPI Control Register Bits
+#define SPIE	7			//SPI Interrupt Enable
+#define SPE		6			//SPI Enable
+#define DORD	5			//Data Order
+#define MSTR	4			//Master/Slave Select
+#define CPOL	3			//Clock Polarity
+#define CPHA	2			//Clock Phase
+#define SPR1	1			//SPI Clock Rate Select bit 1
+#define SPR0	0			//SPI Clock Rate Select bit 0
+//SPI Status Register Bits
+#define SPIF	7			//SPI Interrupt Flag
+#define WCOL	6			//Write Collision Flag
+#define SPI2X	0			//SPI Double Speed Bit
+typedef enum Clock_Rate
+{
+	Freq_4,
+	Freq_16,
+	Freq_64,
+	Freq_128
+	}Clock_Rate;
+typedef enum SPI_Mode
+{
+	Master,
+	Slave
+}SPI_Mode;
+typedef enum Speed
+{
+	Normal,
+	Double
+}Speed;	
+#endif /* SPI_CONFIG_H_ */
