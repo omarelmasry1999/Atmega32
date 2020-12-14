@@ -1,0 +1,66 @@
+/*
+ * registers.h
+ *
+ * Created: 6/5/2020 10:20:12 PM
+ *  Author: Omar el Masry
+ */ 
+
+
+#ifndef REGISTERS_H_
+#define REGISTERS_H_
+#include "Config.h"
+
+/*Registers Addresses*/
+//DIO Registers
+#define A 0X39
+#define B 0X36
+#define C 0X33
+#define D 0X30
+
+//Interrupt Registers
+#define AVR_SatutsRegister		   *((volatile uint8*)(0X5F))
+#define Timer0_InterruptMask	   *((volatile uint8*)(0X59))
+
+//Timer0 Registers
+#define Timer0_Control              *((volatile uint8*)(0X53))
+#define Timer0_Counter			    *((volatile uint8*)(0X52))
+#define Timer0_OutputCompareMatch   *((volatile uint8*)(0X5C)) 
+#define Timer0_InterruptFlag	    *((volatile uint8*)(0X58))
+//Timer1 Registers
+#define Timer1_ControlA             *((volatile uint8*)(0X4F))
+#define Timer1_ControlB             *((volatile uint8*)(0X4E))
+#define Timer1_CounterL			    *((volatile uint8*)(0X4C))
+#define Timer1_CounterH			    *((volatile uint8*)(0X4D))
+#define Timer1_OutputCompareMatchAL *((volatile uint8*)(0X4A))
+#define Timer1_OutputCompareMatchAH *((volatile uint8*)(0X4B))
+#define Timer1_OutputCompareMatchBL *((volatile uint8*)(0X48))
+#define Timer1_OutputCompareMatchBH *((volatile uint8*)(0X49))
+#define Timer1_InputCaptureL		*((volatile uint8*)(0X46))
+#define Timer1_InputCaptureH		*((volatile uint8*)(0X47))
+#define Timer1_InterruptMask		*((volatile uint8*)(0X59))
+#define Timer1_InterruptFlag	    *((volatile uint8*)(0X58))
+//USART registers 
+#define UART_DataRegister           *((volatile uint8*)(0X2C))
+#define UART_ControlRegisterA       *((volatile uint8*)(0X2B))
+#define UART_ControlRegisterB       *((volatile uint8*)(0X2A))
+#define UART_ControlRegisterC       *((volatile uint8*)(0X40))
+#define BaudRateRegisterL			*((volatile uint8*)(0X29))
+#define BaudRateRegisterH			*((volatile uint8*)(0X40))
+//SPI registers
+#define SPI_ControlRegister			*((volatile uint8*)(0X2D))
+#define SPI_StatusRegister			*((volatile uint8*)(0X2E))
+#define SPI_DataRegister			*((volatile uint8*)(0X2F))
+/*Register Offset Selection*/
+#define Direction_Offset 1
+#define Output_Offset 2
+#define Input_Offset 0
+
+//Interrupt bit in AVR Status register
+#define I_Bit 7
+
+//ISR definition 
+#define ISR(vector, ...)\
+void vector(void) __attribute__ ((signal,used,externally_visible)) __VA_ARGS__;\
+void vector(void)
+
+#endif /* REGISTERS_H_ */
