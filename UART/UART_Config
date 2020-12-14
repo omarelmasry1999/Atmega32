@@ -1,0 +1,53 @@
+/*
+ * UART_Config.h
+ *
+ * Created: 7/17/2020 7:56:20 PM
+ *  Author: Omar el Masry
+ */ 
+
+
+#ifndef UART_CONFIG_H_
+#define UART_CONFIG_H_
+
+
+//UART Control and Status Register A bits
+#define MPCM 0					//Multi-Processor Communication Mode
+#define U2X  1                  //Double UART Transmission Speed 
+#define PE	 2                  //Parity Error Flag
+#define DOR  3					//Data OverRun Flag 
+#define FE	 4					//Frame error Flag
+#define UDRE 5					//UART Data Register Empty Flag
+#define TXC  6					//Transmission Complete Flag
+#define RXC	 7					//Receive Complete Flag
+//UART Control and Status Register B bits
+#define TXB8  0					//Transmit Data Bit 8
+#define RXB8  1                 //Receive Data Bit 8
+#define UCSZ2 2                 //Character Size Bit 2
+#define TXEN  3					//Transmitter Enable
+#define RXEN  4					//Receiver Enable
+#define UDRIE 5					//UART Data Register Empty Interrupt Enable
+#define TXCIE 6					//Transmission Complete Interrupt Enable
+#define RXCIE 7					//Receive Complete Interrupt Enable
+
+//UART Control and Status Register C bits
+#define UCPOL 0					//Clock Polarity
+#define UCSZ0 1                 //Character Size Bit 0
+#define UCSZ1 2                 //Character Size Bit 1
+#define USBS  3					//Stop Bit Select
+#define UPM0  4					//Parity Mode Bit 0
+#define UPM1  5					//Parity Mode Bit 1
+#define UMSEL 6                 //USART Mode Select (Sync./Async.)
+#define URSEL 7                 //Register Select
+
+typedef enum UART_SpeedMode
+{
+	Normal_Speed,
+	Double_Speed
+	}UART_SpeedMode; 
+typedef enum UART_SyncMode
+{
+	Sync,
+	Async
+	}UART_SyncMode;	
+
+#endif /* UART_CONFIG_H_ */
